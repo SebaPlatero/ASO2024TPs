@@ -14,8 +14,12 @@ function multiplicacion {
 }
 
 function division {
+    if (( $(echo "$2 == 0" | bc -l) )); then
+        echo "Error: No puedes dividir por cero."
+        resultado="Indefinido"
+    else
         resultado=$(echo "scale=2; $1 / $2" | bc)
-
+    fi
 }
 
 echo "Bienvenido a la calculadora simple!"
@@ -33,22 +37,22 @@ case $opcion in
     1)
         suma $num1 $num2
         resultado=$(( num1 + num2 ))
-echo "Resultado de la suma: $resultado"
+	echo "Resultado de la suma: $resultado"
         ;;
     2)
         resta $num1 $num2
         resultado=$(( num1 - num2 ))
-echo "Resultado de la resta: $resultado"
+	echo "Resultado de la resta: $resultado"
         ;;
     3)
         multiplicacion $num1 $num2
         resultado=$(( num1 * num2 ))
-echo "Resultado de la multiplicacion: $resultado"
+	echo "Resultado de la multiplicacion: $resultado"
         ;;
     4)
         division $num1 $num2
         resultado=$(( num1 / num2 ))
-echo "Resultado de la division: $resultado"
+	echo "Resultado de la division: $resultado"
         ;;
 
 esac

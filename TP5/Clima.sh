@@ -19,4 +19,4 @@ fi
 echo "Consulta el clima de cualquier ciudad."
 read -p "Ingresa el nombre de la ciudad: " ciudad
 
-obtener_clima "$ciudad"
+obtener_clima $ciudad
